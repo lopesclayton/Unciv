@@ -24,8 +24,8 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@mipmap/uncivicon"
-        android:roundIcon="@mipmap/uncivicon_round"
+        android:icon="@drawable/wigo_launcher"
+        android:roundIcon="@drawable/wigo_launcher"
         android:label="@string/wigo_app_name"
         android:name="com.unciv.app.WigoApplication"
         android:isGame="true"

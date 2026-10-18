@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Original Wigo city mark. MPL-2.0. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+        android:pathData="M26,82V48H42V32H66V48H82V82Z M32,57H37V66H32Z M51,40H57V50H51Z M71,57H76V66H71Z M48,65H60V82H48Z M38,30L54,22L70,30Z M23,46L34,39L45,46Z M63,46L74,39L85,46Z" />
+</vector>
