@@ -40,6 +40,8 @@ lifecycle, gameplay/save and current signed-package behavior need final validati
 Test results for WigoOnlineSafety alone do not prove all networking is covered,
 child-law compliance, ad delivery correctness, or permission to publish.
 No Play listing/submission is represented by publishing this source snapshot.
-Signed candidate1275 now includes the About notice. Build/signature/bundletool
-checks passed; previous1274 was preserved separately. Not uploaded to Play.
-SHA256: 014B67D23F838BE2EA68D19476ABCCA559DB481E0BC2B2699769D2C4DCD77867
+Signed candidate1276 includes the About notice and Wigo launcher resources.
+Build/signature/bundletool checks passed; previous1275 preserved separately.
+All four native libraries have 16KB-aligned ELF loads; no runtime claim.
+Not uploaded to Play; final device and store checks remain pending.
+SHA256: 46D08E7A4485B833A3E2FA218CF193F24A7252B1A730AEDA0C8FCA74BB81C158
