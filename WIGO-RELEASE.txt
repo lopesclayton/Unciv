@@ -4,7 +4,7 @@ Original project: https://github.com/yairm210/Unciv
 Original MPL-2.0 license and upstream credits are retained.
 
 Android application ID: com.wigotecnologia.game.unciv
-Source version: 4.22.11-patch1 (1274), min SDK24, target SDK36, compile SDK37.
+Source version: 4.22.11-patch1 (1275), min SDK24, target SDK36, compile SDK37.
 Build with JDK21, the repository Gradle wrapper and Android SDK37 installed.
 Command: gradlew.bat :android:bundleRelease
 Focused tests: gradlew.bat :tests:test --tests com.unciv.logic.WigoOnlineSafetyTest
@@ -23,14 +23,18 @@ Changes in this source snapshot:
 - Game HTTP/Ktor/WebSocket/external-link entrypoints and background worker gated.
   Revocation cancels registered clients' requests and disconnects tracked HTTP.
 - Source namespaces and original notices retained; Android applicationId separate.
+- About now identifies the independent Wigo adaptation and links to modified
+  source, with English/Brazilian Portuguese text and existing gated link handling.
+  Original About links/banner retained; text uses renderer wrapping width.
 
 Policy: https://s3.sa-east-1.amazonaws.com/lupper.com.br/politica-privacidade-jogos.html
 Contact: contato@lupper.com.br
 
 NOT a final production approval:
-Final launcher/title/store identity and source-access notice still need review.
+Final launcher/title/store identity and rendered About layout still need review.
 Device credential cancellation/recreation, active connection revocation, ad
 lifecycle, gameplay/save and current signed-package behavior need final validation.
 Test results for WigoOnlineSafety alone do not prove all networking is covered,
 child-law compliance, ad delivery correctness, or permission to publish.
 No Play listing/submission is represented by publishing this source snapshot.
+The existing signed1274 candidate does not contain the new About notice.

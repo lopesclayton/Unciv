@@ -23,6 +23,11 @@ internal class AboutTab(
             // The changelog has no patches, and anchors per release tag omit the dots
             val versionAnchor = Regex("""\.|-patch\d+$""").replace(UncivGame.VERSION.text, "")
             val lines = sequence {
+                yield(FormattedLine("Wigo Civilizações", header = 2))
+                yield(FormattedLine("Independent adaptation by Wigo Tecnologia."))
+                yield(FormattedLine("Based on Unciv. Original credits and MPL-2.0 license retained."))
+                yield(FormattedLine("Wigo source code (MPL-2.0)", link = "https://github.com/lopesclayton/Unciv"))
+                yield(FormattedLine())
                 yield(FormattedLine(extraImage = "banner", imageSize = 240f, centered = true))
                 yield(FormattedLine())
                 yield(FormattedLine("{Version}: ${UncivGame.VERSION.toNiceString()}", link = "${Constants.uncivRepoURL}blob/master/changelog.md#$versionAnchor"))
@@ -30,7 +35,8 @@ internal class AboutTab(
                 yield(FormattedLine("Visit repository", link = Constants.uncivRepoURL))
                 yield(FormattedLine("Visit the wiki", link = Constants.wikiURL))
             }
-            MarkupRenderer.renderTo(table, lines.asIterable())
+            val textWidth = ((UncivGame.Current.screen?.stage?.width ?: 600f) - 100f).coerceIn(160f, 520f)
+            MarkupRenderer.renderTo(table, lines.asIterable(), labelWidth = textWidth)
         }
     }
 }
