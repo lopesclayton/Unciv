@@ -37,4 +37,6 @@ lifecycle, gameplay/save and current signed-package behavior need final validati
 Test results for WigoOnlineSafety alone do not prove all networking is covered,
 child-law compliance, ad delivery correctness, or permission to publish.
 No Play listing/submission is represented by publishing this source snapshot.
-The existing signed1274 candidate does not contain the new About notice.
+Signed candidate1275 now includes the About notice. Build/signature/bundletool
+checks passed; previous1274 was preserved separately. Not uploaded to Play.
+SHA256: 014B67D23F838BE2EA68D19476ABCCA559DB481E0BC2B2699769D2C4DCD77867
