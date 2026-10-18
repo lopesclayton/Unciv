@@ -73,7 +73,7 @@ object MarkupRenderer {
                 }
             else if (line.linkType == FormattedLine.LinkType.External) {
                 actor.onClick {
-                    Gdx.net.openURI(line.link)
+                    com.unciv.logic.WigoOnlineSafety.openUri(line.link)
                 }
                 actor.onRightClick {
                     Gdx.app.clipboard.contents = line.link

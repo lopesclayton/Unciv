@@ -4,6 +4,9 @@ import android.content.Intent
 import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
+import android.app.UiModeManager
+import android.content.res.Configuration
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,6 +32,7 @@ import kotlinx.coroutines.launch
 open class AndroidLauncher : AndroidApplication() {
 
     private var game: AndroidGame? = null
+    private var consentBanner: ConsentBanner? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +66,17 @@ open class AndroidLauncher : AndroidApplication() {
         }
 
         game = AndroidGame(this)
-        initialize(game, config)
+        // Google Mobile Ads does not support Android TV. Keep its existing game-only path.
+        val tv = (getSystemService(UI_MODE_SERVICE) as UiModeManager).currentModeType == Configuration.UI_MODE_TYPE_TELEVISION
+        if (tv || this is AndroidTvLauncher) {
+            initialize(game, config)
+        } else {
+            val content = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+            content.addView(initializeForView(game, config), LinearLayout.LayoutParams(-1, 0, 1f))
+            consentBanner = ConsentBanner(this, content)
+            setContentView(content)
+            consentBanner?.start()
+        }
 
         // Setup display cutout AFTER libGDX initialize() — libGDX window setup resets layoutInDisplayCutoutMode
         displayImpl.setCutoutFromUiThread(settings.androidCutout)
@@ -85,6 +99,12 @@ open class AndroidLauncher : AndroidApplication() {
             UncivFiles.getSettingsForPlatformLaunchers(filesDir.path)
         }
 
+        // Banner and game controls must remain clear of navigation bars and cutouts.
+        if (consentBanner != null) {
+            val safe = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
+            view.setPadding(safe.left, safe.top, safe.right, safe.bottom)
+            return insets
+        }
         // If settings.androidCutout is false, padding is applied
         if (!settings.androidCutout) {
             val cutoutInsets = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
@@ -126,6 +146,7 @@ open class AndroidLauncher : AndroidApplication() {
     }
 
     override fun onPause() {
+        consentBanner?.pause()
         val game = this.game!!
         if (game.isInitializedProxy()
                 && game.gameInfo != null
@@ -145,6 +166,7 @@ open class AndroidLauncher : AndroidApplication() {
     }
 
     override fun onResume() {
+        consentBanner?.resume()
         try {
             WorkManager.getInstance(applicationContext).cancelAllWorkByTag(MultiplayerTurnCheckWorker.WORK_TAG)
             with(NotificationManagerCompat.from(this)) {
@@ -164,6 +186,11 @@ open class AndroidLauncher : AndroidApplication() {
             return
         game?.setDeepLinkedGame(intent)
         processPossibleFriendDeepLink(intent)
+    }
+
+    override fun onDestroy() {
+        consentBanner?.destroy()
+        super.onDestroy()
     }
    
     private fun processPossibleFriendDeepLink(intent: Intent) {

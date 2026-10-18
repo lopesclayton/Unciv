@@ -200,7 +200,7 @@ class CrashScreen(val exception: Throwable) : BaseScreen() {
         )
             .onClick {
                 if (copied) {
-                    Gdx.net.openURI("${Constants.uncivRepoURL}issues")
+                    com.unciv.logic.WigoOnlineSafety.openUri("${Constants.uncivRepoURL}issues")
                 } else {
                     ToastPopup(
                         "Please copy the error report first.",

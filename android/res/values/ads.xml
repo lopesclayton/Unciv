@@ -1,0 +1,4 @@
+<resources>
+    <string name="ad_privacy_options">Ad privacy options</string>
+    <string name="ad_privacy_unavailable">Privacy options are temporarily unavailable. Please try again.</string>
+</resources>

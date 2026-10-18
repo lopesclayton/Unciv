@@ -43,6 +43,7 @@ open class ApiV2Wrapper(baseUrl: String) {
 
     // HTTP client to handle the server connections, logging, content parsing and cookies
     internal val client = HttpClient(CIO) {
+        install(com.unciv.logic.WigoOnlineGate)
         // Do not add install(HttpCookies) because it will break Cookie handling
         install(ContentNegotiation) {
             json(Json {

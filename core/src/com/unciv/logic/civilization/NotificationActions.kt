@@ -228,7 +228,7 @@ class EspionageAction : NotificationAction {
 /** Open [url] externally in the browser */
 class LinkAction(private val url: String = "") : NotificationAction {
     override fun execute(worldScreen: WorldScreen) {
-        if (url.isNotEmpty()) Gdx.net.openURI(url)
+        if (url.isNotEmpty()) com.unciv.logic.WigoOnlineSafety.openUri(url)
     }
 }
 

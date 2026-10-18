@@ -10,6 +10,7 @@ import io.ktor.http.*
 
 object UncivKtor {
     val client = HttpClient(CIO) {
+        install(WigoOnlineGate)
         followRedirects = true
         install(HttpRequestRetry) {
             maxRetries = 3

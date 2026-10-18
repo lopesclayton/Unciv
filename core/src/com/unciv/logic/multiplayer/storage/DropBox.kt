@@ -25,7 +25,7 @@ object DropBox: FileStorage {
             throw FileStorageRateLimitReached(remainingRateLimitSeconds)
 
         // URL(string) is deprecated, URI.toUrl(string) API level 36:
-        with(URI(url).toURL().openConnection() as HttpURLConnection) {
+        with(com.unciv.logic.WigoOnlineSafety.openConnection(URI(url).toURL()) as HttpURLConnection) {
             requestMethod = "POST"  // default is GET
 
             @Suppress("SpellCheckingInspection")

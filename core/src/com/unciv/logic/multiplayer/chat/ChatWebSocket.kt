@@ -96,6 +96,7 @@ object ChatWebSocket {
 
     @OptIn(ExperimentalSerializationApi::class)
     private val client = HttpClient(CIO) {
+        install(com.unciv.logic.WigoOnlineGate)
         install(WebSockets) {
             pingInterval = 30.seconds
             contentConverter = KotlinxWebsocketSerializationConverter(Json {

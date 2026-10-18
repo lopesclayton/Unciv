@@ -286,6 +286,7 @@ class MultiplayerTurnCheckWorker(appContext: Context, workerParams: WorkerParame
     }
 
     override fun doWork(): Result = runBlocking {
+        if (!WigoParentActivity.isOnlineAllowed()) return@runBlocking Result.success()
         Log.i(LOG_TAG, "doWork")
         val showPersistNotific = inputData.getBoolean(PERSISTENT_NOTIFICATION_ENABLED, true)
         val configuredDelay = getConfiguredDelay(inputData)

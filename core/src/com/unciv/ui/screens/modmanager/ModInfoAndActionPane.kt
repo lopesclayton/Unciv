@@ -102,7 +102,7 @@ internal class ModInfoAndActionPane : Table() {
         if (repoUrl.isNotEmpty()) {
             val githubButton = "Open Github page".toTextButton()
             githubButton.onClick {
-                Gdx.net.openURI(repoUrl)
+                com.unciv.logic.WigoOnlineSafety.openUri(repoUrl)
             }
             githubButton.onRightClick {
                 Gdx.app.clipboard.contents = repoUrl

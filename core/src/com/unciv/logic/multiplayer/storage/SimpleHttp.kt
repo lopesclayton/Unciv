@@ -22,6 +22,10 @@ object SimpleHttp {
     }
 
     fun sendRequest(method: String, url: String, content: String, timeout: Int = 5000, header: Map<String, String>? = null, action: SendRequestCallback) {
+        if (!com.unciv.logic.WigoOnlineSafety.allowed()) {
+            action(false, "Online features are locked by parental controls", null)
+            return
+        }
         var uri = URI(url)
         if (uri.host == null) uri = URI("http://$url")
 
@@ -34,7 +38,7 @@ object SimpleHttp {
             return
         }
 
-        with(urlObj.openConnection() as HttpURLConnection) {
+        with(com.unciv.logic.WigoOnlineSafety.openConnection(urlObj) as HttpURLConnection) {
             requestMethod = method  // default is GET
             connectTimeout = timeout
             instanceFollowRedirects = true
@@ -68,6 +72,7 @@ object SimpleHttp {
     }
 
     fun getIpAddress(): String? {
+        if (!com.unciv.logic.WigoOnlineSafety.allowed()) return null
         DatagramSocket().use { socket ->
             socket.connect(InetAddress.getByName("8.8.8.8"), 10002)
             return socket.localAddress.hostAddress

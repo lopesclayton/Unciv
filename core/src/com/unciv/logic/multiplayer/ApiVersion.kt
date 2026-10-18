@@ -75,6 +75,7 @@ enum class ApiVersion {
 
             // This client instance should be used during the API detection
             val client = HttpClient(CIO) {
+                install(com.unciv.logic.WigoOnlineGate)
                 install(ContentNegotiation) {
                     json(Json {
                         prettyPrint = true

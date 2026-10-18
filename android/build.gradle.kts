@@ -28,8 +28,8 @@ android {
     }
     defaultConfig {
         namespace = BuildConfig.identifier
-        applicationId = BuildConfig.identifier
-        minSdk = 21
+        applicationId = "com.wigotecnologia.game.unciv"
+        minSdk = 24
         targetSdk = 36
         versionCode = BuildConfig.appCodeNumber
         versionName = BuildConfig.appVersion
@@ -52,8 +52,13 @@ android {
     buildTypes {
         debug {
             isDebuggable = true
+            applicationIdSuffix = ".debug"
+            resValue("string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713")
+            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
         }
         release {
+            resValue("string", "admob_app_id", "ca-app-pub-8430549257884116~5279647686")
+            resValue("string", "admob_banner_id", "ca-app-pub-8430549257884116/5371147025")
             // If you make this true you get a version of the game that just flat-out doesn't run
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -65,7 +70,8 @@ android {
         disable += "MissingTranslation"   // see res/values/strings.xml
     }
     compileOptions {
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
     androidResources {
@@ -74,13 +80,14 @@ android {
     }
     buildFeatures {
         aidl = true
+        resValues = true
     }
 }
 
 // necessary for Android WorkManager lib, used in MultiplayerTurnCheckWorker
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_1_8
+        jvmTarget = JvmTarget.JVM_11
     }
 }
 
@@ -145,6 +152,8 @@ tasks.register<Exec>("run") {
 }
 
 dependencies {
+    implementation("com.google.android.gms:play-services-ads:25.5.0")
+    implementation("com.google.android.ump:user-messaging-platform:4.0.0")
     implementation(libs.android.ktx.core)
     implementation(libs.android.ktx.runtime)
     // Needed to convert e.g. Android 26 API calls to Android 21

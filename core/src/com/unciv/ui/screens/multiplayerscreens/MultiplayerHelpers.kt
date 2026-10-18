@@ -120,7 +120,7 @@ object MultiplayerHelpers {
             "Consider using a custom server instead."
         ).colspan(2).row()
         dropboxWarning.addButton("Open Documentation") {
-            Gdx.net.openURI("${Constants.wikiURL}Other/Multiplayer/#hosting-a-multiplayer-server")
+            com.unciv.logic.WigoOnlineSafety.openUri("${Constants.wikiURL}Other/Multiplayer/#hosting-a-multiplayer-server")
         }.colspan(2).row()
 
         val checkBox = "Don't show again".toCheckBox()

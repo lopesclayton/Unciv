@@ -1,0 +1,18 @@
+<resources>
+    <string name="wigo_privacy">Privacidade</string>
+    <string name="wigo_policy">Política de privacidade</string>
+    <string name="wigo_no_browser">Nenhum navegador disponível. Abra este endereço em outro dispositivo:</string>
+    <string name="wigo_age_title">Sobre você</string>
+    <string name="wigo_age_description">Sua resposta é usada somente neste dispositivo. Não guardamos sua idade exata nem a enviamos a anunciantes. Os anúncios continuam sem personalização para todos.</string>
+    <string name="wigo_age_label">Idade em anos</string>
+    <string name="wigo_continue">Continuar</string>
+    <string name="wigo_age_skip">Pular</string>
+    <string name="wigo_age_error">Informe uma idade entre 0 e 120 ou escolha Pular.</string>
+    <string name="wigo_parent_title">Controle parental</string>
+    <string name="wigo_parent_credential">Peça ao responsável pelo dispositivo que confirme a senha ou PIN de bloqueio do Android.</string>
+    <string name="wigo_parent_no_lock">Os recursos online e comunitários continuam bloqueados. Um adulto deve configurar um bloqueio seguro no Android e manter a credencial em segredo.</string>
+    <string name="wigo_parent_warning">Recursos online podem compartilhar nomes, mensagens, dados da partida e informações do dispositivo/rede com outros jogadores e servidores de terceiros. Não compartilhe informações pessoais nem converse com desconhecidos. Um adulto deve supervisionar crianças. Permitir recursos online nesta sessão? Isso não ativa anúncios personalizados.</string>
+    <string name="wigo_parent_enabled">Recursos online permitidos nesta sessão. Você pode bloquear novas solicitações e interromper conexões do jogo agora. Reiniciar o processo também bloqueia. Os anúncios continuam sem personalização.</string>
+    <string name="wigo_parent_lock">Bloquear</string>
+    <string name="wigo_parent_enable">Permitir</string>
+</resources>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="wigo_app_name" translatable="false">Wigo Civilizações</string>
+    <string name="wigo_privacy">Privacy</string>
+    <string name="wigo_policy">Privacy policy</string>
+    <string name="wigo_no_browser">No browser is available. Open this address on another device:</string>
+    <string name="wigo_age_title">About you</string>
+    <string name="wigo_age_description">Your answer is used only on this device. We do not store your exact age or send it to advertisers. Ads remain non-personalized for everyone.</string>
+    <string name="wigo_age_label">Age in years</string>
+    <string name="wigo_continue">Continue</string>
+    <string name="wigo_age_skip">Skip</string>
+    <string name="wigo_age_error">Enter an age between 0 and 120, or choose Skip.</string>
+    <string name="wigo_parent_title">Parental controls</string>
+    <string name="wigo_parent_credential">Ask the adult responsible for this device to confirm its screen-lock credential.</string>
+    <string name="wigo_parent_no_lock">Online and community features stay locked. An adult must first configure a secure Android screen lock and keep its credential private.</string>
+    <string name="wigo_parent_warning">Online features can share names, messages, game data and device/network information with other players and third-party servers. Do not share personal details or contact strangers. An adult must supervise children. Allow online features for this running session? This does not enable personalized ads.</string>
+    <string name="wigo_parent_enabled">Online features are allowed for this running session. You can block new requests and stop active game connections now. A process restart also locks them. Ads stay non-personalized.</string>
+    <string name="wigo_parent_lock">Block</string>
+    <string name="wigo_parent_enable">Allow</string>
+</resources>

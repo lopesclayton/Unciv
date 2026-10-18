@@ -111,6 +111,10 @@ class MainMenuScreen: BaseScreen(), RecreateOnResize {
 
         table.touchable = Touchable.enabled
         table.onActivation(binding = binding) {
+            if ((text == "Multiplayer" || text == "Mods") && !com.unciv.logic.WigoOnlineSafety.allowed()) {
+                com.unciv.logic.WigoOnlineSafety.requestParent()
+                return@onActivation
+            }
             stopBackgroundMapGeneration()
             function()
         }
@@ -227,13 +231,13 @@ class MainMenuScreen: BaseScreen(), RecreateOnResize {
         val discordButton = ImageGetter.getImage("OtherIcons/Discord")
             .surroundWithCircle(buttonsSize, color = skinStrings.skinConfig.baseColor)
             .surroundWithThinCircle(Color.WHITE)
-            .onActivation { Gdx.net.openURI("https://discord.gg/bjrB4Xw") }
+            .onActivation { com.unciv.logic.WigoOnlineSafety.openUri("https://discord.gg/bjrB4Xw") }
         rightSideButtons.add(discordButton)
 
         val githubButton = ImageGetter.getImage("OtherIcons/Github")
             .surroundWithCircle(buttonsSize, color = skinStrings.skinConfig.baseColor)
             .surroundWithThinCircle(Color.WHITE)
-            .onActivation { Gdx.net.openURI(Constants.uncivRepoURL) }
+            .onActivation { com.unciv.logic.WigoOnlineSafety.openUri(Constants.uncivRepoURL) }
         rightSideButtons.add(githubButton)
 
         rightSideButtons.pack()

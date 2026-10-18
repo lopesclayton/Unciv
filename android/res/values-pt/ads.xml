@@ -1,0 +1,4 @@
+<resources>
+    <string name="ad_privacy_options">Privacidade dos anúncios</string>
+    <string name="ad_privacy_unavailable">As opções de privacidade estão indisponíveis. Tente novamente.</string>
+</resources>

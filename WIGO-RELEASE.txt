@@ -1,0 +1,36 @@
+Wigo Civilizacoes - independent Wigo Tecnologia adaptation of Unciv
+Modified source: https://github.com/lopesclayton/Unciv
+Original project: https://github.com/yairm210/Unciv
+Original MPL-2.0 license and upstream credits are retained.
+
+Android application ID: com.wigotecnologia.game.unciv
+Source version: 4.22.11-patch1 (1274), min SDK24, target SDK36, compile SDK37.
+Build with JDK21, the repository Gradle wrapper and Android SDK37 installed.
+Command: gradlew.bat :android:bundleRelease
+Focused tests: gradlew.bat :tests:test --tests com.unciv.logic.WigoOnlineSafetyTest
+Release signing material is not included; use your own key for your own builds.
+Debug uses Google's test ad identifiers. Release identifiers are Wigo's public
+AdMob placement identifiers, not authentication credentials.
+
+Changes in this source snapshot:
+- Wigo Android package/label, child-restricted non-personalized banner and UMP.
+- Exact age is not persisted; only a local category is retained. Ads apply the
+  restrictive treatment to every category. Advertising identifier permissions
+  are removed from merged manifests. Android TV retains its game-only path.
+- Native privacy button and policy accessible without parental authentication.
+- Adult Android screen-lock credential plus explicit warning enables online
+  features for the process session. Parent can revoke; process restart relocks.
+- Game HTTP/Ktor/WebSocket/external-link entrypoints and background worker gated.
+  Revocation cancels registered clients' requests and disconnects tracked HTTP.
+- Source namespaces and original notices retained; Android applicationId separate.
+
+Policy: https://s3.sa-east-1.amazonaws.com/lupper.com.br/politica-privacidade-jogos.html
+Contact: contato@lupper.com.br
+
+NOT a final production approval:
+Final launcher/title/store identity and source-access notice still need review.
+Device credential cancellation/recreation, active connection revocation, ad
+lifecycle, gameplay/save and current signed-package behavior need final validation.
+Test results for WigoOnlineSafety alone do not prove all networking is covered,
+child-law compliance, ad delivery correctness, or permission to publish.
+No Play listing/submission is represented by publishing this source snapshot.
